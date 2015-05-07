@@ -38,9 +38,12 @@ Detailed steps
 4) Attempt to annotate E1^E4 and E8^E2 spliced transcripts
 	The annotation process leverages a published server to predict aplice donors and annotators (Wang M. and Marín A. 2006. Characterization and Prediction of Alternative Splice Sites. Gene 366: 219-227.). The annotion script uses the default settings as described in the original paper. The result table is parsed based on several assumptions. These assumptions are the result of extensive comparative genomics between well studies papillomaviruses.
 	E1 splice donor assumptions:
-		1) The SD is located within the E1 ORF  
+		1) The SD is located within the E1 ORF
+		
 		2) The canonical "AG" dinucleotide has to be used  
+		
 		3) When spliced into the E4/E8 splice acceptor, the resulting protein has to be in frame with the 			   annotated E4 ORF  
+		
 	E8 splice donor assumptions:
 		1) The E8 ORF is located in the "+1 frame" of E1  
 		2) The canonical "AG" dinucleotide has to be used  
