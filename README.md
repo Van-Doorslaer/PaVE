@@ -32,7 +32,6 @@ Detailed steps
     The file "DB.blast.txt" contains the data to create a custom blast database. It contains the example protein          sequences for each of the viral ORFs. For E5, I chose to use consensus sequences to improve the blast annotation      performance. Furthermore, the database includes many random sequences to improve the statistics of the BLAST          search. Take the following steps to initialize the DB.
         1) cd into the "Blast" folder  
         2) type (without the quoutes) "makeblastdb DB.blast.txt"
-    
     The script will translate all ORFs in the forward frames and compare these putative proteins to the Blast             database. If a hit is found, this ORF will be annotated based on the Blast result.
     Annotation of L1 tries to take into account that L1 is usually translated from a spliced mRNA. The regular            expression "(C|T)(C|T)(A|C|G|T)(C|T)AG(A)TG" will ensure that the correct methionine is used to start the L1 ORF.
 
