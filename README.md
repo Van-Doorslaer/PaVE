@@ -29,26 +29,26 @@ I apologize for the many dependencies. Contact me if installation is not going a
 Detailed steps
 
 3) Use a custom Blast database to annotate viral proteins
-    The file "DB.blast.txt" contains the data to create a custom blast database. It contains the example protein          sequences for each of the viral ORFs. For E5, I chose to use consensus sequences to improve the blast annotation      performance. Furthermore, the database includes many random sequences to improve the statistics of the BLAST          search. Take the following steps to initialize the DB.
-        1) cd into the "Blast" folder  
-        2) type (without the quoutes) "makeblastdb DB.blast.txt"
+    The file "DB.blast.txt" contains the data to create a custom blast database. It contains the example protein          sequences for each of the viral ORFs. For E5, I chose to use consensus sequences to improve the blast annotation      performance. Furthermore, the database includes many random sequences to improve the statistics of the BLAST          search. Take the following steps to initialize the DB.  
+        1) cd into the "Blast" folder    
+        2) type (without the quoutes) "makeblastdb DB.blast.txt"  
     The script will translate all ORFs in the forward frames and compare these putative proteins to the Blast             database. If a hit is found, this ORF will be annotated based on the Blast result.
     Annotation of L1 tries to take into account that L1 is usually translated from a spliced mRNA. The regular            expression "(C|T)(C|T)(A|C|G|T)(C|T)AG(A)TG" will ensure that the correct methionine is used to start the L1 ORF.
 
 4) Attempt to annotate E1^E4 and E8^E2 spliced transcripts
 	The annotation process leverages a published server to predict aplice donors and annotators (Wang M. and Marín A. 2006. Characterization and Prediction of Alternative Splice Sites. Gene 366: 219-227.). The annotion script uses the default settings as described in the original paper. The result table is parsed based on several assumptions. These assumptions are the result of extensive comparative genomics between well studies papillomaviruses.
 	E1 splice donor assumptions:
-		1) The SD is located within the E1 ORF
-		2) The canonical "AG" dinucleotide has to be used
-		3) When spliced into the E4/E8 splice acceptor, the resulting protein has to be in frame with the 			   annotated E4 ORF
+		1) The SD is located within the E1 ORF  
+		2) The canonical "AG" dinucleotide has to be used  
+		3) When spliced into the E4/E8 splice acceptor, the resulting protein has to be in frame with the 			   annotated E4 ORF  
 	E8 splice donor assumptions:
-		1) The E8 ORF is located in the "+1 frame" of E1
-		2) The canonical "AG" dinucleotide has to be used
+		1) The E8 ORF is located in the "+1 frame" of E1  
+		2) The canonical "AG" dinucleotide has to be used  
 		3) When spliced into the E4/E8 splice acceptor, the 
-		resulting protein has to be in frame with the annotated E2 ORF
+		resulting protein has to be in frame with the annotated E2 ORF  
 	E4/E8 splice acceptor assumptions:
-		1) E4 is loacted in the "+1 frame" of E2
-		2) The canonical "AG" dinucleotide has to be used
+		1) E4 is loacted in the "+1 frame" of E2  
+		2) The canonical "AG" dinucleotide has to be used  
 
 Please Note: while the process works fairly well, the produced spliced sequences are manually compared to sequences currently in PaVE. When needed, manual curration is performed.
 
