@@ -30,7 +30,7 @@ Detailed steps
 
 3) Use a custom Blast database to annotate viral proteins
     The file "DB.blast.txt" contains the data to create a custom blast database. It contains the example protein          sequences for each of the viral ORFs. For E5, I chose to use consensus sequences to improve the blast annotation      performance. Furthermore, the database includes many random sequences to improve the statistics of the BLAST          search. Take the following steps to initialize the DB.
-        1) cd into the "Blast" folder
+        1) cd into the "Blast" folder  
         2) type (without the quoutes) "makeblastdb DB.blast.txt"
     
     The script will translate all ORFs in the forward frames and compare these putative proteins to the Blast             database. If a hit is found, this ORF will be annotated based on the Blast result.
@@ -41,11 +41,12 @@ Detailed steps
 	E1 splice donor assumptions:
 		1) The SD is located within the E1 ORF
 		2) The canonical "AG" dinucleotide has to be used
-		3) When spliced into the E4/E8 splice acceptor, the 			   resulting protein has to be in frame with the 			   annotated E4 ORF
+		3) When spliced into the E4/E8 splice acceptor, the resulting protein has to be in frame with the 			   annotated E4 ORF
 	E8 splice donor assumptions:
 		1) The E8 ORF is located in the "+1 frame" of E1
 		2) The canonical "AG" dinucleotide has to be used
-		3) When spliced into the E4/E8 splice acceptor, the 			   resulting protein has to be in frame with the 			   annotated E2 ORF
+		3) When spliced into the E4/E8 splice acceptor, the 
+		resulting protein has to be in frame with the annotated E2 ORF
 	E4/E8 splice acceptor assumptions:
 		1) E4 is loacted in the "+1 frame" of E2
 		2) The canonical "AG" dinucleotide has to be used
@@ -59,11 +60,11 @@ The relaxed consensus (ACCnnnnnnGGT) is used to search the viral genome. Importa
 Traditionally, the URR is located between the end of L1 and the beginning of the next annotated ORF
 
 7) perform some inital QC steps
-	1) test that the coordinates of the different ORFs are   	correct. 
-	E.g. E1^E4 should end at the same coordinate as E4
-	E.g. all ORFs should be located within the viral genome
+	1) test that the coordinates of the different ORFs are correct.
+		E.g. E1^E4 should end at the same coordinate as E4
+		E.g. all ORFs should be located within the viral genome
 	2) Check whether expected ORFs are annotated
-	Based on comparative genomics it is expected that viral 	genomes contain certain ORFs. These requirements vary depending on the phylogenetic classification of these viruses. E.g. members of the Xipapillomavirus genus do not contain an E6 ORF. For this step, the L1 sequence is extracted and compared to all L1 sequences currently in PaVE. This comparison is used to classify the test genome into a viral genus and/or species. Based on this certain recommendations are made. This step also ensures that no ORF is duplicated. E.g. A virus cannot contain multiple L1 ORFs. The presence of such a duplication usually indicates a (sequencing) error in the genome. 
+	Based on comparative genomics it is expected that viral genomes contain certain ORFs. These requirements vary 	depending on the phylogenetic classification of these viruses. E.g. members of the Xipapillomavirus genus do not 		contain an E6 ORF. For this step, the L1 sequence is extracted and compared to all L1 sequences currently 	in PaVE. This comparison is used to classify the test genome into a viral genus and/or species. Based on this 		certain recommendations are made. This step also ensures that no ORF is duplicated. E.g. A virus cannot 		contain multiple L1 ORFs. The presence of such a duplication usually indicates a (sequencing) error in the 		genome. 
 The results of these QC steps is stored in the log.txt file
 
 
